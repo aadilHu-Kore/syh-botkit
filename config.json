@@ -3,7 +3,7 @@
         "port": 4567
     },
     "app": {
-        "apiPrefix" : "/syh-dev",
+        "apiPrefix" : "/syh-botkit",
         "url": "https://demo.kore.net"
     },
     "validations": {
