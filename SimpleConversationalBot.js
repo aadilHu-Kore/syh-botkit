@@ -1,5 +1,5 @@
-//var botId = ["st-52ed66cb-f5a6-55b8-995f-dcba43b09729","st-c818eea6-185c-510e-bb1d-c8f26b836435"];
-//const botName = ["HCPayer_Dev","HCPayer_Demo"];
+//var botId = ["st-980bad94-cb6d-57c2-8a78-a767d037fb02","st-c8c35fee-9e41-5f9e-a3a1-952dd11cc9d8"];
+//const botName = ["SYH_DEV","SYH_Spanish"];
 const config = require('./config.json');
 const botId = Object.keys(config.credentials);
 const botName = botId.map(id => config.credentials[id].botName);
@@ -17,12 +17,6 @@ module.exports = {
     botName : botName,
 
     on_user_message: function (requestId, data, callback) {
-        //console.log('data=> =========================================>>>> ', JSON.stringify(data));
-        // console.log('User Request ID==>', requestId);
-        // console.log('ON_USER_MESSAGE => Channel type = ' + data.channel.type);
-        // console.log('ON_USER_MESSAGE = ',data.context.session.BotUserSession.lastMessage)
-        // //console.log('ON_USER_MESSAGE = ',data.context.session.BotUserSession.lastMessage)
-        //console.log('ON_USER_MESSAGE = ',data.context.session.BotUserSession.lastMessage.messagePayload.text)
         console.log(new Date(), "ON_USER_MESSAGE : ", data.message);
         console.log("Language override Flag value on USER EVENT::", data.context.session.BotUserSession.setLanguageOverrideFlag)
         //console.log("intent name::",data.context.intent);
@@ -33,43 +27,10 @@ module.exports = {
             //return sdk.sendBotMessage(data, callback);
             return sdk.sendUserMessage(data, callback);
             // } else if (!data.agent_transfer) {
-            //     //Forward the message to bot
+                 //Forward the message to bot
             //     return sdk.sendBotMessage(data, callback);
             // } 
-        } //else if (data.message !== undefined && data.context.session.BotUserSession.setLanguageOverrideFlag === true && data.context.session.UserSession.Caller === "1234567890") {
-        // if (data.message === "1" || data.message === "2" || data.message === "1." || data.message === "2." || data.message.toLowerCase().includes("english") || data.message.toLowerCase().includes("spanish")) {
-        //     console.log("inside second block")
-        //     console.log("Language override Flag::",data.context.session.BotUserSession.setLanguageOverrideFlag)
-        //     console.log("user input for language override::",data.message);
-        //     var lang = {
-        //         "1": "en",
-        //         "2": "es",
-        //         "1.": "en",
-        //         "2.": "es",
-        //         "english": "en",
-        //         "spanish": "es",
-        //         "english.": "en",
-        //         "spanish.": "es",
-
-        //     }
-        //     // data.metaInfo = {
-        //     //     setBotLanguage: lang[data.message.toLowerCase()],
-        //     //     intentInfo: {
-        //     //         intent: "SATWelcomeDialog"
-        //     //     }
-        //     // };
-
-        //     data.metaInfo = {
-        //         setBotLanguage: lang[data.message.toLowerCase()],
-        //         'nlMeta': {
-        //               'intent': 'SATWelcomeDialog', 
-        //               'isRefresh': true
-        //         }
-        //   };
-        //     console.log("test::",data.metaInfo)
-        //     //https://techdocs.audiocodes.com/voice-ai-connect/#VAIG_Combined/parameters.htm?TocPath=_____7
-        //     return sdk.sendBotMessage(data, callback);
-        // }
+        } 
         console.log("event >>>>>>>>>>>> ", data.channel.botEvent);
         console.log("channelType >>>>>>>>> ", data.context.session.BotUserSession.channels[0].type);  //smartassist and rtm
         //console.log("lastMessage::",data.context.session.BotUserSession.lastMessage.channel);

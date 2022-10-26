@@ -4,7 +4,7 @@
     },
     "app": {
         "apiPrefix" : "/syh-dev",
-        "url": "https://cb34-2401-4900-705a-bb4c-dc26-be88-5910-1d90.ngrok.io"
+        "url": "https://demo.kore.net"
     },
     "validations": {
         "leastNodeVersion": 10
