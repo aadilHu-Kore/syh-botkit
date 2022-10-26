@@ -1,0 +1,65 @@
+{
+    "server": {
+        "port": 4567
+    },
+    "app": {
+        "apiPrefix" : "/syh-dev",
+        "url": "https://cb34-2401-4900-705a-bb4c-dc26-be88-5910-1d90.ngrok.io"
+    },
+    "validations": {
+        "leastNodeVersion": 10
+    },
+    "credentials": {
+
+        "st-9d7626e8-dd51-58a3-b51b-9032c223b9e9":{
+            "apikey": "EiX658zsgabyf4CLPc759m/9e7hh4IEBl1mptOdKXC8=",
+                "appId": "cs-c445c7b0-5940-5da7-af1f-d1965f0d5df7",
+                "botName": "VCC_Spanish"
+    
+        },
+        "st-c557a4ef-8c17-5dd8-9cb1-4bece4850a2a":{
+            "apikey": "cBb8KZnuk+8HqtX534MdqpbLq4bJPLBjn8+LPKzN3lw=",
+                "appId": "cs-d7c68101-e397-5ca4-b54a-e952d07072ff",
+                "botName": "BelcorpSpanishTesting"
+    
+        },
+        "st-fefae8d9-f9e6-54e0-b271-0588957cd154":{
+            "apikey": "J3cPwybY49WJPHg7J3LPcqI+GaWXm/DNCRt4d4KcZow=",
+                "appId": "cs-12a5a279-75c6-5915-8709-1079b5972b8f",
+                "botName": "Testing Spanish V2"
+    
+        },
+        "st-d34b1e9e-52be-5716-aa06-69b7af448d64":{
+            "apikey": "2d65XwuysyKuTkDA62mMs54GAp9txrKdk6+OxdzJb3U=",
+                "appId": "cs-231c2993-8107-569f-8db9-e9cae3d25716",
+                "botName": "VCC_QA_Spanish"
+    
+        },
+        "st-980bad94-cb6d-57c2-8a78-a767d037fb02":{
+            "apikey": "0370hE2amCkeY+HrBWlz+AjGORZLOOPOktsJsPSBt1U=",
+                "appId": "cs-a1d1e337-ed09-5e91-9bd8-83d9d744aed6",
+                "botName": "SYH_DEV"
+    
+        },
+        "st-c8c35fee-9e41-5f9e-a3a1-952dd11cc9d8":{
+            "apikey": "RLWjiTNCd/cQw1XjKGGNLB76o1uNTXnSwgtBUURyKlM=",
+                "appId": "cs-c7ca62c9-28a8-55bd-ad20-01e283860760",
+                "botName": "SYH_Spanish"
+    
+        }
+    
+    },
+    "redis": {
+        "options": {
+            "host": "localhost",
+            "port": 6379
+        },
+        "available": false
+    },
+    "examples" : {
+        "mockServicesHost"  : "http://localhost:8004"
+    },
+    "liveagentlicense": "8947569",
+    "supportsMessageAck": true,
+    "languages":["en","de"]
+}
