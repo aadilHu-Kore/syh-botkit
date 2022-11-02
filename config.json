@@ -4,7 +4,7 @@
     },
     "app": {
         "apiPrefix" : "/syh-botkit",
-        "url": "https://demo.kore.net"
+        "url": "https://demo.kore.net" 
     },
     "validations": {
         "leastNodeVersion": 10
@@ -45,6 +45,18 @@
             "apikey": "RLWjiTNCd/cQw1XjKGGNLB76o1uNTXnSwgtBUURyKlM=",
                 "appId": "cs-c7ca62c9-28a8-55bd-ad20-01e283860760",
                 "botName": "SYH_Spanish"
+    
+        },
+        "st-f916cc34-03fd-5f93-aa2d-9d8f2fa13bad":{
+            "apikey": "JzbeJhc3S42EIjgzen+n4U+nF9wyMFIT/quc2j/PANc=",
+                "appId": "cs-6fdd9de5-1714-500c-a7b3-b0ed78f269ca",
+                "botName": "SYH_UAT"
+    
+        },
+        "st-402a0a01-e737-56ab-8e5e-8d0367ee14bb":{
+            "apikey": "RP1SALMJkUaDT15S22dsJARKu7ZS9v88/cwwk/OrQEc=",
+                "appId": "cs-533476a4-a6d9-56ab-acd0-8f738bec9f10",
+                "botName": "SYH_QA"
     
         }
     
