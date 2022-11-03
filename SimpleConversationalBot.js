@@ -45,7 +45,7 @@ module.exports = {
         // if(data.channel.botEvent === 'ON_CONNECT_EVENT' && data.context.session.BotUserSession.setLanguageOverrideFlag === true)
         //SYH_Spanish -> 12055258902, //VCC_QA_Spanish -> 12513060520, DID for Spanish = 8858 SYH_English -> +12057363676
         //------------------SAT VOICE START------------------------------------------------------------------ 
-        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12055258902') {
+        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12512766105') {
             console.log("aadil testing lang == Spanish on smartassist...");
             console.log("INSIDE of SAT VOICE es")
             data.metaInfo = { setBotLanguage: 'es' };
