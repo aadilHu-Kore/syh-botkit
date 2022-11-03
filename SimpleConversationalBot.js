@@ -13,8 +13,8 @@ var sdk = require("./lib/sdk");
  * We can either update the message, or chose to call one of 'sendBotMessage' or 'sendUserMessage'
  */
 module.exports = {
-    botId   : botId,
-    botName : botName,
+    botId: botId,
+    botName: botName,
 
     on_user_message: function (requestId, data, callback) {
         console.log(new Date(), "ON_USER_MESSAGE : ", data.message);
@@ -27,10 +27,10 @@ module.exports = {
             //return sdk.sendBotMessage(data, callback);
             return sdk.sendUserMessage(data, callback);
             // } else if (!data.agent_transfer) {
-                 //Forward the message to bot
+            //Forward the message to bot
             //     return sdk.sendBotMessage(data, callback);
             // } 
-        } 
+        }
         console.log("event >>>>>>>>>>>> ", data.channel.botEvent);
         console.log("channelType >>>>>>>>> ", data.context.session.BotUserSession.channels[0].type);  //smartassist and rtm
         //console.log("lastMessage::",data.context.session.BotUserSession.lastMessage.channel);
@@ -59,7 +59,7 @@ module.exports = {
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
         //------------------SAT VOICE END------------------------------------------------------------------ 
-        
+
         //------------------WEB START------------------------------------------------------------------ 
         else if (data.context.session.BotUserSession.channels[0].type == 'rtm' && data.context.session.BotUserSession.setLanguageOverrideFlag === true) {
             console.log("testing lang == es on web ");
@@ -73,7 +73,7 @@ module.exports = {
                         "english": "en",
                         "spanish": "es",
                         "english.": "en",
-                        "spanish.": "es", 
+                        "spanish.": "es",
                     }
                     data.metaInfo = {
                         setBotLanguage: lang[data.message.toLowerCase()],
@@ -91,12 +91,18 @@ module.exports = {
         //------------------Agent Mode Exit END------------------------------------------------------------------
         if (data && data.agent_transfer && (data.message === "####" || data.message === "abandonar" || data.message === "quit" || data.message === "stop chat")) {
             data.message = "Ok, exiting the agent mode.";
-            sdk.sendUserMessage(data, callback);
             sdk.clearAgentSession(data);
-            }
+            return sdk.sendUserMessage(data);
+            // sdk.closeConversationSession(data, callback);
+
+        }
+
+        if(data.agent_transfer){
+            return sdk.sendBotMessage(data, callback)
+        }
         //------------------Agent Mode Exit END------------------------------------------------------------------
         return sdk.sendBotMessage(data, callback);
-        
+
     },
     on_bot_message: function (requestId, data, callback) {
         console.log(new Date(), "ON_BOT_MESSAGE : ", data.message);
@@ -113,15 +119,15 @@ module.exports = {
 
         return sdk.sendUserMessage(data, callback);
     },
-    on_agent_transfer : function(requestId, data, callback){
+    on_agent_transfer: function (requestId, data, callback) {
         console.log("on_event -->  Event : ", data.event);
         return callback(null, data);
     },
-    on_event : function (requestId, data, callback) {
+    on_event: function (requestId, data, callback) {
         console.log("on_event -->  Event : ", data.event);
         return callback(null, data);
     },
-    on_alert : function (requestId, data, callback) {
+    on_alert: function (requestId, data, callback) {
         console.log("on_alert -->  : ", data, data.message);
         return sdk.sendAlertMessage(data, callback);
     }
