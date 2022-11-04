@@ -17,12 +17,10 @@ module.exports = {
     botName: botName,
 
     on_user_message: function (requestId, data, callback) {
-        console.log(new Date(), "ON_USER_MESSAGE : ", data.message);
-        console.log("Language override Flag value on USER EVENT::", data.context.session.BotUserSession.setLanguageOverrideFlag)
 
         if (data.message === "Hi" || data.message === "hello") {
             data.message = "Hello Aadil from Botkit";
-            console.log("inside first")
+
             //Sends back 'Hello' to user.
             //return sdk.sendBotMessage(data, callback);
             return sdk.sendUserMessage(data, callback);
@@ -31,14 +29,8 @@ module.exports = {
             //     return sdk.sendBotMessage(data, callback);
             // } 
         }
-        console.log("event >>>>>>>>>>>> ", data.channel.botEvent);
-        console.log("channelType >>>>>>>>> ", data.context.session.BotUserSession.channels[0].type);  //smartassist and rtm
-        //console.log("lastMessage::",data.context.session.BotUserSession.lastMessage.channel);
+    
 
-        console.log("caller number on USER EVENT:", data.context.session.UserSession.Caller)
-        console.log("dialed number on USER EVENT:", data.context.session.UserSession.DialedNumber)
-        console.log("START...");
-        console.log("ON CONNECT EVENT::", data.channel.botEvent)
         if (data.context.session.BotUserSession.setLanguageOverrideFlag === true || data.channel.botEvent === 'ON_CONNECT_EVENT') {
             data.metaInfo = { setBotLanguage: 'en' };
         }
@@ -46,15 +38,15 @@ module.exports = {
         //SYH_Spanish -> 12055258902, //VCC_QA_Spanish -> 12513060520, DID for Spanish = 8858 SYH_English -> +12057363676
         //------------------SAT VOICE START------------------------------------------------------------------ 
         if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12512766105') {
-            console.log("aadil testing lang == Spanish on smartassist...");
-            console.log("INSIDE of SAT VOICE es")
+
+
             data.metaInfo = { setBotLanguage: 'es' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
         else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12057363676') {
-            console.log("aadil testing lang == english on smartassist...");
-            console.log("INSIDE of SAT VOICE en")
+
+
             data.metaInfo = { setBotLanguage: 'en' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
@@ -62,13 +54,13 @@ module.exports = {
 
         //------------------WEB START------------------------------------------------------------------ 
         else if (data.context.session.BotUserSession.channels[0].type == 'rtm' && data.context.session.BotUserSession.setLanguageOverrideFlag === true) {
-            console.log("testing lang == es on web ");
-            console.log("current bot lang::", data.metaInfo)
+
+
             if (data.message !== undefined) {
-                console.log("user input::", data.message)
+    
                 if (data.message.toLowerCase().includes("english") || data.message.toLowerCase().includes("spanish")) {
-                    console.log("INSIDE of WEB es")
-                    console.log("user input for language override WEB::", data.message);
+        
+        
                     var lang = {
                         "english": "en",
                         "spanish": "es",
@@ -82,7 +74,7 @@ module.exports = {
                             'isRefresh': true
                         }
                     };
-                    console.log("test::", data.metaInfo)
+        
                 }
             }
         }
@@ -93,7 +85,6 @@ module.exports = {
             data.message = "Ok, exiting the agent mode.";
             sdk.clearAgentSession(data);
             return sdk.sendUserMessage(data);
-            // sdk.closeConversationSession(data, callback);
 
         }
 
@@ -109,9 +100,7 @@ module.exports = {
         console.log("Language override Flag value on BOT EVENT::", data.context.session.BotUserSession.setLanguageOverrideFlag)
         console.log("caller number on BOT EVENT:", data.context.session.UserSession.Caller)
         console.log("dailed number on BOT EVENT:", data.context.session.UserSession.DialedNumber)
-        // console.log('Bot Request ID==>', requestId);
-        // console.log('ON_BOT_MESSAGE => ', data.message);
-        console.log("intent triggered::", data.context.intent);
+        
         if (data.message === 'hello') {
             data.message = 'The Bot says hello!';
         }
@@ -120,15 +109,12 @@ module.exports = {
         return sdk.sendUserMessage(data, callback);
     },
     on_agent_transfer: function (requestId, data, callback) {
-        console.log("on_event -->  Event : ", data.event);
         return callback(null, data);
     },
     on_event: function (requestId, data, callback) {
-        console.log("on_event -->  Event : ", data.event);
         return callback(null, data);
     },
     on_alert: function (requestId, data, callback) {
-        console.log("on_alert -->  : ", data, data.message);
         return sdk.sendAlertMessage(data, callback);
     }
 
