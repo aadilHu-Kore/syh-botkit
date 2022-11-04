@@ -18,16 +18,24 @@ module.exports = {
 
         //------------------SAT VOICE START------------------------------------------------------------------ 
         if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12512766105') {
-
-
-            data.metaInfo = { setBotLanguage: 'es' };
+            data.metaInfo = {
+                setBotLanguage: 'es',
+                'nlMeta': {
+                    'intent': 'SATWelcomeDialog',
+                    'isRefresh': true
+                }
+            };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
         else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12057363676') {
-
-
-            data.metaInfo = { setBotLanguage: 'en' };
+            data.metaInfo = {
+                setBotLanguage: 'en',
+                'nlMeta': {
+                    'intent': 'SATWelcomeDialog',
+                    'isRefresh': true
+                }
+            };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
         //------------------SAT VOICE END------------------------------------------------------------------ 
