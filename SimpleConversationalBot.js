@@ -23,7 +23,7 @@ module.exports = {
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
-        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' && data.context.session.UserSession.DialedNumber == '8808') {
+        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' && data.context.session.UserSession.DialedNumber == '8808')) {
             
             data.metaInfo = { setBotLanguage: 'en' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
