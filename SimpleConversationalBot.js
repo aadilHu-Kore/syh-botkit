@@ -17,25 +17,15 @@ module.exports = {
 
 
         //------------------SAT VOICE START------------------------------------------------------------------ 
-        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12512766105') {
-            data.metaInfo = {
-                setBotLanguage: 'es',
-                'nlMeta': {
-                    'intent': 'SATWelcomeDialog',
-                    'isRefresh': true
-                }
-            };
+        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' || data.context.session.UserSession.DialedNumber == '8858')) {
+
+            data.metaInfo = { setBotLanguage: 'es' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
-        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12057363676') {
-            data.metaInfo = {
-                setBotLanguage: 'en',
-                'nlMeta': {
-                    'intent': 'SATWelcomeDialog',
-                    'isRefresh': true
-                }
-            };
+        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' && data.context.session.UserSession.DialedNumber == '8808') {
+            
+            data.metaInfo = { setBotLanguage: 'en' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
         //------------------SAT VOICE END------------------------------------------------------------------ 
