@@ -77,7 +77,7 @@ module.exports = {
         console.log(new Date(), "ON_BOT_MESSAGE : ", data.message);
         console.log("Language override Flag value on BOT EVENT::", data.context.session.BotUserSession.setLanguageOverrideFlag)
         console.log("caller number on BOT EVENT:", data.context.session.UserSession.Caller)
-        console.log("dailed number on BOT EVENT:", data.context.session.UserSession.DialedNumber)
+        console.log("dialed number on BOT EVENT:", data.context.session.UserSession.DialedNumber)
         
         return sdk.sendUserMessage(data, callback);
     },
