@@ -17,13 +17,19 @@ module.exports = {
 
 
         //------------------SAT VOICE START------------------------------------------------------------------ 
-        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' || (data.context.session.UserSession.DialedNumber == '8776' || data.context.session.UserSession.DialedNumber == '8772'))) {
+        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' &&
+            (data.context.session.UserSession.DialedNumber == '+12512766105' ||
+                (data.context.session.UserSession.DialedNumber == '8776' ||
+                    data.context.session.UserSession.DialedNumber == '8772'))) {
 
             data.metaInfo = { setBotLanguage: 'es' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
-        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' && (data.context.session.UserSession.DialedNumber == '8770' || data.context.session.UserSession.DialedNumber == '8771'))) {
+        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' &&
+            (data.context.session.UserSession.DialedNumber == '+12512766105' &&
+                (data.context.session.UserSession.DialedNumber == '8770' ||
+                    data.context.session.UserSession.DialedNumber == '8771'))) {
 
             data.metaInfo = { setBotLanguage: 'en' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
