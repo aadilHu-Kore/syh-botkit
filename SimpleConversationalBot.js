@@ -9,7 +9,7 @@ module.exports = {
     botName: botName,
 
     on_user_message: function (requestId, data, callback) {
-    
+
 
         if (data.context.session.BotUserSession.setLanguageOverrideFlag === true || data.channel.botEvent === 'ON_CONNECT_EVENT') {
             data.metaInfo = { setBotLanguage: 'en' };
@@ -17,14 +17,14 @@ module.exports = {
 
 
         //------------------SAT VOICE START------------------------------------------------------------------ 
-        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' || data.context.session.UserSession.DialedNumber == '8858')) {
+        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' || (data.context.session.UserSession.DialedNumber == '8776' || data.context.session.UserSession.DialedNumber == '8772'))) {
 
             data.metaInfo = { setBotLanguage: 'es' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
-        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' && data.context.session.UserSession.DialedNumber == '8808')) {
-            
+        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' && (data.context.session.UserSession.DialedNumber == '8770' || data.context.session.UserSession.DialedNumber == '8771'))) {
+
             data.metaInfo = { setBotLanguage: 'en' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
@@ -35,10 +35,10 @@ module.exports = {
 
 
             if (data.message !== undefined) {
-    
+
                 if (data.message.toLowerCase().includes("english") || data.message.toLowerCase().includes("spanish")) {
-        
-        
+
+
                     var lang = {
                         "english": "en",
                         "spanish": "es",
@@ -52,7 +52,7 @@ module.exports = {
                             'isRefresh': true
                         }
                     };
-        
+
                 }
             }
         }
@@ -66,7 +66,7 @@ module.exports = {
 
         }
 
-        if(data.agent_transfer){
+        if (data.agent_transfer) {
             return sdk.sendBotMessage(data, callback)
         }
         //------------------Agent Mode Exit END------------------------------------------------------------------
@@ -78,7 +78,7 @@ module.exports = {
         console.log("Language override Flag value on BOT EVENT::", data.context.session.BotUserSession.setLanguageOverrideFlag)
         console.log("caller number on BOT EVENT:", data.context.session.UserSession.Caller)
         console.log("dailed number on BOT EVENT:", data.context.session.UserSession.DialedNumber)
-        
+
         return sdk.sendUserMessage(data, callback);
     },
     on_agent_transfer: function (requestId, data, callback) {
