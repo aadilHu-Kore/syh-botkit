@@ -18,24 +18,12 @@ module.exports = {
 
         //------------------SAT VOICE START------------------------------------------------------------------ 
         if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' || esDIDs.includes(data.context.session.UserSession.DialedNumber))) {
-            data.metaInfo = {
-                setBotLanguage: 'es',
-                'nlMeta': {
-                    'intent': 'SATWelcomeDialog',
-                    'isRefresh': true
-                }
-            };
+            data.metaInfo = { setBotLanguage: 'es' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
         else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12057363676') {
-            data.metaInfo = {
-                setBotLanguage: 'en',
-                'nlMeta': {
-                    'intent': 'SATWelcomeDialog',
-                    'isRefresh': true
-                }
-            };
+            data.metaInfo = {setBotLanguage: 'en'};
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
         //------------------SAT VOICE END------------------------------------------------------------------ 
@@ -69,7 +57,7 @@ module.exports = {
         }
         //------------------WEB END------------------------------------------------------------------ 
 
-        //------------------Agent Mode Exit END------------------------------------------------------------------
+        //------------------Agent Mode Exit START------------------------------------------------------------------
         if (data && data.agent_transfer && (data.message === "####" || data.message === "abandonar" || data.message === "quit" || data.message === "stop chat")) {
             data.message = "Ok, exiting the agent mode.";
             sdk.clearAgentSession(data);
@@ -88,7 +76,7 @@ module.exports = {
         console.log(new Date(), "ON_BOT_MESSAGE : ", data.message);
         console.log("Language override Flag value on BOT EVENT::", data.context.session.BotUserSession.setLanguageOverrideFlag)
         console.log("caller number on BOT EVENT:", data.context.session.UserSession.Caller)
-        console.log("dailed number on BOT EVENT:", data.context.session.UserSession.DialedNumber)
+        console.log("dialed number on BOT EVENT:", data.context.session.UserSession.DialedNumber)
         
         return sdk.sendUserMessage(data, callback);
     },
