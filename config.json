@@ -1,6 +1,6 @@
 {
     "server": {
-        "port": 4567
+        "port": 6581
     },
     "app": {
         "apiPrefix": "/syh-prod-botkit",
