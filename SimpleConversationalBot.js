@@ -9,21 +9,25 @@ module.exports = {
     botName: botName,
 
     on_user_message: function (requestId, data, callback) {
-    
 
-        if (data.context.session.BotUserSession.setLanguageOverrideFlag === true || data.channel.botEvent === 'ON_CONNECT_EVENT') {
-            data.metaInfo = { setBotLanguage: 'en' };
-        }
+
+            if (data.context.session.BotUserSession.setLanguageOverrideFlag === true || data.channel.botEvent === 'ON_CONNECT_EVENT') {
+                data.metaInfo = { setBotLanguage: 'en' };
+            }
 
 
         //------------------SAT VOICE START------------------------------------------------------------------ 
-        if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && (data.context.session.UserSession.DialedNumber == '+12512766105' || data.context.session.UserSession.DialedNumber == '8771')) {
+        if (data.context.session.BotUserSession.channels[0].type == 'smartassist'
+            && (data.context.session.UserSession.DialedNumber == '+19374530422' ||
+                data.context.session.UserSession.DialedNumber == '8808')) {
             data.metaInfo = { setBotLanguage: 'en' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
 
-        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist' && data.context.session.UserSession.DialedNumber == '+12057363676') {
-            data.metaInfo = {setBotLanguage: 'en'};
+        else if (data.context.session.BotUserSession.channels[0].type == 'smartassist'
+            && (data.context.session.UserSession.DialedNumber == '+15642202537' ||
+                data.context.session.UserSession.DialedNumber == '8858')) {
+            data.metaInfo = { setBotLanguage: 'es' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
         //------------------SAT VOICE END------------------------------------------------------------------ 
@@ -33,10 +37,10 @@ module.exports = {
 
 
             if (data.message !== undefined) {
-    
+
                 if (data.message.toLowerCase().includes("english") || data.message.toLowerCase().includes("spanish")) {
-        
-        
+
+
                     var lang = {
                         "english": "en",
                         "spanish": "es",
@@ -51,7 +55,7 @@ module.exports = {
                         }
                     };
                     data.context.session.BotUserSession.selectedLanguage = lang[data.message.toLowerCase()]
-        
+
                 }
             }
         }
@@ -65,7 +69,7 @@ module.exports = {
 
         }
 
-        if(data.agent_transfer){
+        if (data.agent_transfer) {
             return sdk.sendBotMessage(data, callback)
         }
         //------------------Agent Mode Exit END------------------------------------------------------------------
@@ -77,7 +81,7 @@ module.exports = {
         console.log("Language override Flag value on BOT EVENT::", data.context.session.BotUserSession.setLanguageOverrideFlag)
         console.log("caller number on BOT EVENT:", data.context.session.UserSession.Caller)
         console.log("dialed number on BOT EVENT:", data.context.session.UserSession.DialedNumber)
-        
+
         return sdk.sendUserMessage(data, callback);
     },
     on_agent_transfer: function (requestId, data, callback) {
