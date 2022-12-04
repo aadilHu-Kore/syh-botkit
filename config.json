@@ -14,6 +14,11 @@
             "apikey": "XU2EZsHqp8eEsJjqguch5OQMIROl3SOR0gvlhp7AObM=",
             "appId": "cs-77ac2602-9e33-5553-b8ee-c13b580294df",
             "botName": "San Ysidro Health"
+        },
+        "st-402a0a01-e737-56ab-8e5e-8d0367ee14bb": {
+            "apikey": "EoBzDf4Wm0sir/FYhCimDpUWZog8u4zQwVgCvNFYXdg=",
+            "appId": "cs-63fe3a7b-ae6b-53c3-b41b-d01c2b7b483c",
+            "botName": "SYH_QA"
         }
     },
     "redis": {
