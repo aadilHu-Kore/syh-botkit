@@ -26,7 +26,7 @@ module.exports = {
 
         else if (data.context.session.BotUserSession.channels[0].type == 'smartassist'
             && (data.context.session.UserSession.DialedNumber == '+15642202537' ||
-                data.context.session.UserSession.DialedNumber == '8858')) {
+                data.context.session.UserSession.DialedNumber == '8771')) {
             data.metaInfo = { setBotLanguage: 'es' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
