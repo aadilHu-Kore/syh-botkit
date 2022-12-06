@@ -19,7 +19,7 @@ module.exports = {
         //------------------SAT VOICE START------------------------------------------------------------------ 
         if (data.context.session.BotUserSession.channels[0].type == 'smartassist'
             && (data.context.session.UserSession.DialedNumber == '+19374530422' ||
-                data.context.session.UserSession.DialedNumber == '8808')) {
+                data.context.session.UserSession.DialedNumber == '8770')) {
             data.metaInfo = { setBotLanguage: 'en' };
             data.context.session.BotUserSession.setLanguageOverrideFlag === false;
         }
