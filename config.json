@@ -14,6 +14,11 @@
             "apikey": "RP1SALMJkUaDT15S22dsJARKu7ZS9v88/cwwk/OrQEc=",
             "appId": "cs-533476a4-a6d9-56ab-acd0-8f738bec9f10",
             "botName": "SYH_QA"
+        },
+        "st-980bad94-cb6d-57c2-8a78-a767d037fb02": {
+            "apikey": "2NZdGDE+AOzEleSJvaneToGAF4WtVbjr3jHAAcFpCwM=",
+            "appId": "cs-1b75e787-81df-5b9c-9ea0-65e31cc38a31",
+            "botName": "SYH_DEV"
         }
     },
     "redis": {
