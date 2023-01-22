@@ -21,15 +21,15 @@ module.exports = {
             && (data.context.session.UserSession.DialedNumber == '+19374530422' ||
                 data.context.session.UserSession.DialedNumber == '8770')) {
             data.metaInfo = { setBotLanguage: 'en' };
-            data.context.session.BotUserSession.setLanguageOverrideFlag === false;
-        }
+            data.context.session.BotUserSession.selectedLanguage = 'en';
+            data.context.session.BotUserSession.setLanguageOverrideFlag = false;        }
 
         else if (data.context.session.BotUserSession.channels[0].type == 'smartassist'
             && (data.context.session.UserSession.DialedNumber == '+15642202537' ||
                 data.context.session.UserSession.DialedNumber == '8771')) {
             data.metaInfo = { setBotLanguage: 'es' };
-            data.context.session.BotUserSession.setLanguageOverrideFlag === false;
-        }
+            data.context.session.BotUserSession.selectedLanguage = 'es';
+            data.context.session.BotUserSession.setLanguageOverrideFlag = false;        }
         //------------------SAT VOICE END------------------------------------------------------------------ 
 
         //------------------WEB START------------------------------------------------------------------ 

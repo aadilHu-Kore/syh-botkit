@@ -4,7 +4,7 @@
     },
     "app": {
         "apiPrefix": "/syh-prod-botkit",
-        "url": " http://healthassist-vcc-prod.kore-prod-aws.com"
+        "url": "http://healthassist-vcc-prod.kore-prod-aws.com"
     },
     "validations": {
         "leastNodeVersion": 10
