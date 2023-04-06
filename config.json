@@ -19,7 +19,13 @@
             "apikey": "2NZdGDE+AOzEleSJvaneToGAF4WtVbjr3jHAAcFpCwM=",
             "appId": "cs-1b75e787-81df-5b9c-9ea0-65e31cc38a31",
             "botName": "SYH_DEV"
-        }
+        },
+	"st-a48bd16d-a8a2-581a-b901-1d7d377e1616": {
+            "apikey": "bwRCAeTVsN72AEURg7/6Q+3J4rbfPsz5oo7qgEWE5NQ=",
+            "appId": "cs-b4640245-f198-58d9-8092-b1576fc4ae61",
+            "botName": "SYH_Debug_7thMarch"
+
+	}
     },
     "redis": {
         "options": {
