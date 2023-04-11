@@ -110,14 +110,14 @@ module.exports = {
 
                 if (data.message !== undefined) {
 
-                    if (data.message.toLowerCase().includes("english") || data.message.toLowerCase().includes("spanish")) {
-
-
+                    if (data.message.toLowerCase().includes("english") || data.message.toLowerCase().includes("spanish") || data.message.toLowerCase().includes("inglés") || data.message.toLowerCase().includes("español")) {
                         var lang = {
                             "english": "en",
                             "spanish": "es",
                             "english.": "en",
                             "spanish.": "es",
+                            "inglés": "en",
+                            "español": "es"
                         }
                         data.metaInfo = {
                             setBotLanguage: lang[data.message.toLowerCase()],
